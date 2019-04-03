@@ -1,0 +1,57 @@
+local highOftrapezoTextField = native.newTextField( display.contentCenterX, display.contentCenterY + 150, 300, 50 )
+highOftrapezoTextField.id = "high textField"
+highOftrapezoTextField.inputType="number"
+
+local UpperbottomOftrapezoTextField = native.newTextField( display.contentCenterX, display.contentCenterY + 100, 300, 50 )
+UpperbottomOftrapezoTextField.id = "UpperbottomtextField"
+UpperbottomOftrapezoTextField.inputType="number"
+
+local LowerbottomOftrapezoTextField = native.newTextField( display.contentCenterX, display.contentCenterY + 50, 300, 50 )
+LowerbottomOftrapezoTextField.id = "LowerbottomtextField"
+LowerbottomOftrapezoTextField.inputType="number"
+
+display.newText( "Answer", display.contentCenterX, display.contentCenterY -200, native.systemFont, 50 )
+
+display.newText( "Lowerbottom Upperbottom and high", display.contentCenterX, display.contentCenterY, native.systemFont, 20 )
+
+local areaOftrapezoTextField = native.newTextField( display.contentCenterX, display.contentCenterY + -120, 250, 50 )
+
+areaOftrapezoTextField.id = "areaOftrapezoTextField"
+
+
+local image = display.newImageRect( "enterButton.png", 150, 75 )
+
+image.x = display.contentCenterX
+
+image.y = 175
+
+image.id = "calculate button"
+
+
+ 
+local function calculateButtonTouch( event )
+
+ 
+    local highOftrapezo
+
+    local areaOftrapezo
+
+    local UpperbottomOftrapezo
+
+    local LowerbottomOftrapezo
+
+
+   highOftrapezo = highOftrapezoTextField.text
+   UpperbottomOftrapezo = UpperbottomOftrapezoTextField.text
+   LowerbottomOftrapezo = LowerbottomOftrapezoTextField.text
+
+   areaOftrapezo = highOftrapezo * (UpperbottomOftrapezo + LowerbottomOftrapezo) / 2
+   
+   areaOftrapezoTextField.text = "The area is " .. areaOftrapezo
+
+
+    return true
+
+end
+
+image:addEventListener( "touch", calculateButtonTouch )
